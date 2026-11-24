@@ -126,4 +126,5 @@ opencode.json
 /.codex/
 /scripts/__pycache__/
 /tools/__pycache__
+/Penpot SQLite.exe
 /scripts/__pycache__

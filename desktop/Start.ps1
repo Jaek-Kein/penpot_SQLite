@@ -2,10 +2,19 @@
 [CmdletBinding()]
 param(
     [string]$WorkspaceDirectory,
-    [ValidateRange(1024, 65535)][int]$Port = 17861
+    [ValidateRange(1024, 65535)][int]$Port = 17861,
+    [switch]$FromDesktop
 )
 
 $ErrorActionPreference = 'Stop'
+trap {
+    if ($FromDesktop) {
+        Add-Type -AssemblyName System.Windows.Forms
+        [void][Windows.Forms.MessageBox]::Show($_.Exception.Message, 'Penpot SQLite', 'OK', 'Error')
+        exit 1
+    }
+    break
+}
 if (!$WorkspaceDirectory) { $WorkspaceDirectory = Join-Path $PSScriptRoot 'data' }
 $runtimeDir = Join-Path $PSScriptRoot '.runtime\2.19.5'
 $java = Join-Path $runtimeDir 'zulu27.30.201-ca-jre27.0.1.1-win_x64\bin\java.exe'

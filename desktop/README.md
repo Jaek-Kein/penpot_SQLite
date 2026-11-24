@@ -1,10 +1,10 @@
 # Local SQLite desktop prototype for Windows
 
-Double-click `Penpot SQLite.cmd` in the repository root. The launcher opens the Penpot editor in a dedicated Edge or Chrome window. Windows x64 and an installed Edge or Chrome browser are required. The first setup downloads hash-pinned Penpot 2.19.5 assets and an Azul Java runtime. Subsequent launches use the installed files and can run offline.
+Press the Windows key, type **Penpot** and choose **Penpot SQLite**, or double-click `Penpot SQLite.exe` in the repository root. The GUI launcher opens the editor in a dedicated Edge or Chrome window without a console. Windows x64 and an installed Edge or Chrome browser are required.
 
-After setup, press the Windows key, type **Penpot** and choose **Penpot SQLite**. If you move the repository, run `desktop/Register-StartMenu.ps1` again to update the shortcut.
+On a fresh checkout, double-click `Penpot SQLite.cmd` once. It uses the C# compiler included with Windows .NET Framework to create the executable and Start menu entry. The first launch downloads hash-pinned Penpot 2.19.5 assets and an Azul Java runtime. Further launches can run offline. If you move or update the repository, rerun `desktop/Register-StartMenu.ps1` to refresh the executable and shortcut.
 
-The editor starts in the most recently modified file. The Penpot menu takes you back to the dashboard. Open Drafts to create another file. Close the editor windows to end the local server. The launcher owns the server's standard input so closing the launcher also releases the server. Wait for the editor to finish saving before closing it.
+The editor starts in the most recently modified file. The Penpot menu takes you back to the dashboard. Open Drafts to create another file. Wait for the editor to finish saving, then close the editor windows to end the local server and its background host.
 
 For a single shape, the editor can export PNG, SVG and PDF on this PC. Open the profile's Settings, choose Options and enable WebGL rendering. Reopen the document, select a shape, add an export in the right sidebar and download it. These exports run in the browser. If a download uses the previous format after a format change, wait for autosave and reopen the document. Batches and raster exports too large for the browser require Penpot's separate export service.
 
